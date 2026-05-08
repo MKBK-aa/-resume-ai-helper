@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>AI 简历优化与求职信生成器</title>
+ <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+ <main class="app">
+ <section class="hero">
+ <div>
+ <p class="tag">Web LLM Application</p>
+ <h1>AI 简历优化与求职信生成器</h1>
+ <p class="intro">
+ 输入个人经历、目标岗位和修改建议，系统将调用阿里云百炼千问模型，生成简历亮点、岗位匹配分析或求职信。
+ 后续可以继续提出修改要求，系统会结合上一轮内容继续优化。
+ </p>
+ </div>
+ </section>
+ <section class="workspace">
+ <div class="panel input-panel">
+ <h2>输入信息</h2>
+ <label for="apiKey">阿里云百炼 API Key</label>
+ <input id="apiKey" type="password" placeholder="请输入自己的 API Key，代码不会保存该密钥" />
+ <p class="tip">提示：API Key 只用于本次浏览器请求，不要写入代码，也不要上传到 GitHub。</p>
+ <label for="targetJob">目标岗位</label>
+ <input id="targetJob" type="text" placeholder="例如：跨境电商运营助理 / 产品经理实习生 / 平面设计师" />
+ <label for="outputType">生成类型</label>
+ <select id="outputType">
+ <option value="简历亮点优化">简历亮点优化</option>
+ <option value="求职信生成">求职信生成</option>
+ <option value="岗位匹配分析">岗位匹配分析</option>
+ <option value="面试自我介绍">面试自我介绍</option>
+ </select>
+ <label for="experience">个人经历</label>
+ <textarea id="experience" placeholder="请输入教育背景、实习经历、项目经历、技能证书、获奖情况等信
+息。"></textarea>
+ <label for="advice">本轮修改要求</label>
+ <textarea id="advice" class="small" placeholder="例如：更正式一点；突出沟通能力；控制在 300 字以内；改成分点表
+达。"></textarea>
+ <div class="actions">
+ <button id="generateBtn">生成 / 继续修改</button>
+ <button id="exampleBtn" class="secondary">填入示例</button>
+ <button id="clearBtn" class="ghost">清空对话</button>
+ </div>
+ <div id="loading" class="loading">正在生成，请稍候...</div>
+ <div id="errorBox" class="error"></div>
+ </div>
+ <div class="panel result-panel">
+ <div class="result-title">
+ <h2>模型回复</h2>
+ <button id="copyBtn" class="copy">复制最新回复</button>
+ </div>
+ <div id="chatBox" class="chat-box">
+ <div class="empty">生成结果会显示在这里。你可以连续输入修改要求，让系统不断优化同一份求职材料。</div>
+ </div>
+ </div>
+ </section>
+ </main>
+ <script src="script.js"></script>
+</body>
+</html>
